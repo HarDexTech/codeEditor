@@ -1,0 +1,89 @@
+"use strict";
+//get all required elements
+const inputArea = document.getElementById("input");
+const outputArea = document.getElementById("output");
+const clearCode = document.getElementById("clear");
+const copyCode = document.getElementById("copy");
+const exportCode = document.getElementById("export");
+const runCode = document.getElementById("run");
+const saveToLocalHistory = document.getElementById("save");
+const notificationMessages = document.getElementById("notificationMessages");
+
+function defCode() {
+  // Set default HTML code in the textarea
+  input.value = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--Your HTML code goes here-->
+</body>
+</html>
+`;
+}
+defCode();
+
+//function to show notification
+function showNotification(message) {
+  notificationMessages.textContent = message;
+  notificationMessages.classList.remove("invisible");
+  setTimeout(() => {
+    notificationMessages.classList.add("invisible");
+  }, 2000);
+}
+
+//function to copy code to clipboard
+function copyCodeToClipBoard() {
+  navigator.clipboard.writeText(input.value);
+  showNotification("Code copied to clipboard!");
+}
+copyCode.addEventListener("click", copyCodeToClipBoard);
+
+function clearInputArea() {
+  const validateConfirm = confirm(
+    "Are you sure you want to clear all input area?"
+  );
+  if (validateConfirm) {
+    defCode(); //return textarea to default code
+    outputArea.srcdoc = ""; //clear output area
+    showNotification("Input area cleared!");
+  }
+}
+clearCode.addEventListener("click", clearInputArea);
+
+//function to export code as HTML file
+exportCode.addEventListener("click", function () {
+  const textareaContent = inputArea.value;
+  const filename = prompt("Please enter desired filename"); // Desired filename
+
+  if (filename.length !== 0) {
+    // Create a Blob object from the textarea content, specifying the MIME type as HTML
+    const blob = new Blob([textareaContent], { type: "text/html" });
+
+    // Create a URL for the Blob object
+    const url = URL.createObjectURL(blob);
+
+    // Create a temporary anchor element
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = filename; // Set the download attribute with the desired filename
+
+    // Append the anchor to the body (not strictly necessary for download, but good practice)
+    document.body.appendChild(a);
+
+    // Programmatically click the anchor to trigger the download
+    a.click();
+
+    // Clean up by revoking the object URL and removing the anchor
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+
+    showNotification("File download initiated!");
+  } else {
+    showNotification("Filename cannot be empty!");
+  }
+});
