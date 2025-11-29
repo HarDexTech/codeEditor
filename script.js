@@ -27,7 +27,10 @@ function defCode() {
 }
 defCode();
 
-//function to show notification
+/*
+function to show notification
+shows notification div then removes it after 2 seconds
+ */
 function showNotification(message) {
   notificationMessages.textContent = message;
   notificationMessages.classList.remove("invisible");
@@ -43,6 +46,9 @@ function copyCodeToClipBoard() {
 }
 copyCode.addEventListener("click", copyCodeToClipBoard);
 
+/*
+uses confirm() to get if user wants to clear input
+ */
 function clearInputArea() {
   const validateConfirm = confirm(
     "Are you sure you want to clear all input area?"
@@ -60,7 +66,7 @@ exportCode.addEventListener("click", function () {
   const textareaContent = inputArea.value;
   const filename = prompt("Please enter desired filename"); // Desired filename
 
-  if (filename.length !== 0) {
+  if (filename && filename.length !== 0) {
     // Create a Blob object from the textarea content, specifying the MIME type as HTML
     const blob = new Blob([textareaContent], { type: "text/html" });
 
@@ -86,4 +92,20 @@ exportCode.addEventListener("click", function () {
   } else {
     showNotification("Filename cannot be empty!");
   }
+});
+
+/*
+functionality to count characters and line count
+runs function on page load and adds function to an input event listener
+*/
+function count() {
+  const characterCount = input.value.length;
+  const lineCount = input.value.split("\n").length;
+  document.getElementById("countChar").innerHTML = `
+    Character ${characterCount} | Line ${lineCount}
+    `;
+}
+count();
+inputArea.addEventListener("input", function () {
+  count();
 });

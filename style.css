@@ -42,12 +42,13 @@ i {
   font-size: 18px;
 }
 #navContainer {
-  text-align: end;
   border-bottom: 2px solid black;
   position: sticky;
   top: 0;
   right: 0;
   background: var(--bgColor);
+  display: flex;
+  align-items: center;
 }
 .container {
   display: flex;
@@ -116,7 +117,7 @@ iframe {
   border-radius: 5px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   width: 300px;
-  height: 100px;
+  height: auto;
   transition: opacity 0.5s ease-in-out;
   z-index: 1000;
 }
@@ -141,4 +142,8 @@ iframe {
   #navContainer {
     display: none;
   }
+}
+
+#countChar {
+  margin: 0 5%;
 }
