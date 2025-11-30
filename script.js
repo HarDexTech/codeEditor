@@ -9,6 +9,7 @@ const runCode = document.getElementById("run");
 const saveToLocalHistory = document.getElementById("save");
 const notificationMessages = document.getElementById("notificationMessages");
 
+// Function to set default HTML code in the textarea
 function defCode() {
   // Set default HTML code in the textarea
   input.value = `
@@ -25,7 +26,7 @@ function defCode() {
 </html>
 `;
 }
-defCode();
+defCode(); //run on load
 
 /*
 function to show notification
@@ -106,6 +107,35 @@ function count() {
     `;
 }
 count();
+
+// Debounce function to limit the rate of function execution
+function debounce(func, delay) {
+  let timeout;
+  return function (...args) {
+    const context = this;
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(context, args), delay);
+  };
+}
+
+// Debounced version of the runOnLoad function
+const debouncedRunOnLoad = debounce(runOnLoad, 300);
+
+// Event listener for the input area
 inputArea.addEventListener("input", function () {
-  count();
+  count(); //count characters and lines when typing
+  debouncedRunOnLoad(); //run code while typing with debounce
 });
+
+// Event listener for the run button
+runCode.addEventListener("click", function () {
+  runOnLoad();
+  showNotification("Code executed!");
+});
+
+// Function to run the code and display it in the output area
+function runOnLoad() {
+  //runs code in output area
+  outputArea.srcdoc = inputArea.value;
+}
+runOnLoad(); //run on page load to show default code

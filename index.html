@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Meta tags for character set and viewport -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Title of the page -->
     <title>HTML Code Editor</title>
+    <!-- Favicon for the page -->
     <link rel="shortcut icon" href="fav.ico" type="image/x-icon" />
+    <!-- Link to the external stylesheet -->
     <link rel="stylesheet" href="style.css" />
 
+    <!-- Link to Font Awesome for icons -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -16,6 +21,7 @@
     />
   </head>
   <body>
+    <!-- Responsive warning for small screens -->
     <div class="responsive invisible" id="responsive">
       <p>
         This content is optimized for display on tablets and desktop computers
@@ -24,37 +30,54 @@
         (horizontally) mode.
       </p>
     </div>
-    <h1 class="text">HTML Code Editor</h1>
+    <!-- Header of the page -->
+    <header>
+      <h1 class="text">HTML Code Editor</h1>
+    </header>
 
-    <div class="container">
+    <!-- Main container for the editor and preview -->
+    <main class="container">
+      <!-- Editor section -->
       <div id="editor">
+        <!-- Navigation bar for editor actions -->
         <nav id="navContainer">
+          <!-- Character count display -->
           <div id="countChar"></div>
+          <!-- Clear button -->
           <button type="button" id="clear">
-            <i class="fa-solid fa-trash" style="color: #ffffff"></i>
+            <i class="fa-solid fa-trash"></i>
           </button>
+          <!-- Copy button -->
           <button type="button" id="copy">
-            <i class="fa-solid fa-copy" style="color: #ffffff"></i>
+            <i class="fa-solid fa-copy"></i>
           </button>
+          <!-- Export button -->
           <button type="button" id="export">
-            <i class="fa-solid fa-file-export" style="color: #ffffff"></i>
+            <i class="fa-solid fa-file-export"></i>
           </button>
+          <!-- Save button -->
           <button type="button" id="save">
-            <i class="fas fa-save" style="color: #ffffff"></i>
+            <i class="fas fa-save"></i>
           </button>
+          <!-- Run button -->
           <button type="button" id="run">
-            <i class="fa-solid fa-play" style="color: #ffffff"></i>
+            <i class="fa-solid fa-play"></i>
           </button>
         </nav>
+        <!-- Textarea for code input -->
         <textarea name="" id="input" cols="30" rows="10"></textarea>
       </div>
+      <!-- Preview section -->
       <div id="preview">
         <p>Preview</p>
+        <!-- Iframe to display the output -->
         <iframe src="" frameborder="0" id="output"></iframe>
       </div>
-    </div>
+    </main>
 
+    <!-- Notification messages container -->
     <div class="notification invisible" id="notificationMessages"></div>
   </body>
+  <!-- Link to the external JavaScript file -->
   <script src="script.js"></script>
 </html>

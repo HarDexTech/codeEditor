@@ -1,35 +1,44 @@
 /* CSS Boilerplate */
+
+/* Root variables for colors and other reusable values */
 :root {
-  --bgColor: #1e1e1e;
-  --textareabg: #252526;
-  --text: #d4d4d4;
-  --accentColor: #007acc; /*button*/
-  --navbar: #0e0e0e;
-  --icons: #cac3c3e5;
-  --tooltipbg: #0f0f0f;
-  --defWidth: ;
-  --transitions: 0.3s ease-in-out;
-  --borderRadius: calc(infinity * 1px);
+  --bgColor: #1e1e1e; /* Background color */
+  --textareabg: #252526; /* Text area background color */
+  --text: #d4d4d4; /* Text color */
+  --accentColor: #007acc; /* Accent color for buttons */
+  --navbar: #0e0e0e; /* Navbar background color */
+  --icons: #cac3c3e5; /* Icon color */
+  --tooltipbg: #0f0f0f; /* Tooltip background color */
+  --defWidth: ; /* Default width */
+  --transitions: 0.3s ease-in-out; /* Transition timing */
+  --borderRadius: calc(infinity * 1px); /* Border radius */
 }
+
+/* Resetting default margin, padding, and box-sizing */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+/* Body styles */
 body {
   background: var(--bgColor);
   color: var(--text);
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  flex-direction: column;
+  height: 100vh;
 }
+
+/* Removing outline on focus for textarea and button */
 textarea:focus,
 button:focus {
   outline: none;
 }
+
+/* Button styles */
 button {
   cursor: pointer;
   width: 50px;
@@ -38,9 +47,14 @@ button {
   background: none;
   transition: var(--transitions);
 }
+
+/* Icon styles */
 i {
   font-size: 18px;
+  color: #ffffff;
 }
+
+/* Navigation container styles */
 #navContainer {
   border-bottom: 2px solid black;
   position: sticky;
@@ -50,14 +64,16 @@ i {
   display: flex;
   align-items: center;
 }
-.container {
+
+/* Main container styles */
+main.container {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  height: calc(100vh - 70px);
   width: 100%;
   overflow: auto;
+  flex-grow: 1;
 }
+
+/* Textarea styles */
 textarea {
   width: 100%;
   height: 100%;
@@ -68,44 +84,68 @@ textarea {
   color: var(--text);
   overflow: auto;
 }
+
+/* Button hover effect */
 button:hover {
   filter: opacity(0.7);
   transform: scale(1.05);
 }
+
+/* Button active effect */
 button:active {
   transform: scale(0.9);
 }
+
+/* Header styles */
+header {
+  border-bottom: 2px solid black;
+  padding-block: 0.5rem;
+}
+
+/* Text styles */
 .text {
   text-align: center;
-  font-size: 40px;
-  border-bottom: 2px solid black;
-  width: 100%;
+  font-size: 2rem;
 }
+
+/* Editor and preview container styles */
 #editor,
 #preview {
   width: calc(100% / 2);
   height: 100%;
 }
+
+/* Iframe styles */
 iframe {
   width: 100%;
   height: 100%;
   background: var(--text);
 }
+
+/* Preview paragraph styles */
 #preview p {
   text-align: center;
   height: 50px;
   border-bottom: 2px solid black;
 }
+
+/* Preview container border */
 #preview {
   border: 2px solid black;
   border-top: none;
 }
+
+/* Utility class to hide elements */
 .invisible {
   display: none;
 }
+
+/* Utility class to show elements */
 .show {
   display: block;
 }
+
+/* Notification styles */
 .notification {
   position: fixed;
   bottom: 10px;
@@ -121,6 +161,8 @@ iframe {
   transition: opacity 0.5s ease-in-out;
   z-index: 1000;
 }
+
+/* Media query for responsive design on smaller screens */
 @media (max-width: 767px) {
   #responsive {
     position: fixed;
@@ -137,13 +179,14 @@ iframe {
     padding: 20px;
     z-index: 2000;
   }
-  h1,
-  .container,
+  header,
+  main.container,
   #navContainer {
     display: none;
   }
 }
 
+/* Character count styles */
 #countChar {
   margin: 0 5%;
 }
