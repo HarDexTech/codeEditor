@@ -8,6 +8,28 @@ const exportCode = document.getElementById("export");
 const runCode = document.getElementById("run");
 const saveToLocalHistory = document.getElementById("save");
 const notificationMessages = document.getElementById("notificationMessages");
+const themeBtn = document.getElementById("themeBtn");
+const importCode = document.getElementById("import");
+
+// event listener to save code to local storage
+saveToLocalHistory.addEventListener("click", function () {
+  localStorage.setItem("codeEditorHTML", inputArea.value); //save code to local storage
+  showNotification("Code saved to local storage!");
+});
+
+// event listener to import code from local storage
+importCode.addEventListener("click", function () {
+  const savedCode = localStorage.getItem("codeEditorHTML"); //get saved code
+  inputArea.value = savedCode ? savedCode : ""; //if no code saved, set to empty string
+  showNotification("Code imported from local storage!"); //notify user
+  runOnLoad(); //rerun code to show in output area
+});
+
+//function to toggle between light and dark themes
+function toggleTheme() {
+  document.body.classList.toggle("dark-theme");
+}
+themeBtn.addEventListener("click", toggleTheme);
 
 // Function to set default HTML code in the textarea
 function defCode() {

@@ -23,6 +23,7 @@
 
 /* Body styles */
 body {
+  overflow-x: hidden;
   background: var(--bgColor);
   color: var(--text);
   display: flex;
@@ -41,17 +42,22 @@ button:focus {
 /* Button styles */
 button {
   cursor: pointer;
-  width: 50px;
+  width: 40px;
   height: 50px;
   border: none;
   background: none;
   transition: var(--transitions);
 }
 
+header button {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
 /* Icon styles */
 i {
   font-size: 18px;
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
 /* Navigation container styles */
@@ -63,6 +69,7 @@ i {
   background: var(--bgColor);
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 /* Main container styles */
@@ -119,7 +126,7 @@ header {
 iframe {
   width: 100%;
   height: 100%;
-  background: var(--text);
+  background: #f3f3f3;
 }
 
 /* Preview paragraph styles */
@@ -143,6 +150,17 @@ iframe {
 /* Utility class to show elements */
 .show {
   display: block;
+}
+
+/* utility class for theme */
+.dark-theme {
+  --bgColor: #ffffff;
+  --textareabg: #f3f3f3;
+  --text: #1e1e1e;
+  --accentColor: #007acc;
+  --navbar: #e0e0e0;
+  --icons: #4d4d4d;
+  --tooltipbg: #f9f9f9;
 }
 
 /* Notification styles */
