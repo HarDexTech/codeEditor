@@ -6,8 +6,18 @@ A lightweight, browser-based code editor with real-time editing capabilities.
 
 ## 🚀 Features
 
-- Real-time code editing and preview
-- Clean and intuitive user interface
+- **Real-time Preview** - Instant HTML rendering with debounced updates
+- **Save/Load Functionality** - Persist your code using localStorage
+- **Import/Export** - Download your edited code as HTML files
+- **Copy to Clipboard** - Quick copy functionality for code snippets
+- **Character & Line Counter** - Track your code metrics in real-time
+- **Theme Toggle** - Switch between light and dark modes
+- **Notification System** - User-friendly feedback for all actions
+- **Responsive Design** - Optimized for tablets and desktop (768px+)
+
+## 💡 Key Technical Challenges
+
+The primary challenge was implementing smooth real-time preview updates without performance degradation. I solved this using a debounced rendering approach that delays the preview update until the user stops typing for 300ms, preventing excessive DOM re-renders. Additionally, managing state persistence with localStorage while handling import/export operations required careful coordination between the file system API and browser storage.
 
 ## 🛠️ Technologies Used
 
