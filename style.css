@@ -57,7 +57,7 @@ header button {
 /* Icon styles */
 i {
   font-size: 18px;
-  color: #ffffff !important;
+  color: var(--text) !important;
 }
 
 /* Navigation container styles */

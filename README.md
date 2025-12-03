@@ -1,17 +1,40 @@
 # Code Editor
 
-This is a simple code editor built with HTML, CSS, and JavaScript.
+A lightweight, browser-based code editor with real-time editing capabilities.
 
-## Features
+![Screenshot](screenshot.png)
 
-*   Syntax highlighting (currently for HTML, CSS, and JavaScript)
-*   Basic code editing features
+## 🚀 Features
 
-## How to use
+- Real-time code editing and preview
+- Clean and intuitive user interface
 
-1.  Open `index.html` in your web browser.
-2.  Start typing code in the editor.
+## 🛠️ Technologies Used
 
-## Contributing
+- HTML5
+- CSS3
+- JavaScript (Vanilla)
 
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+## 🎯 What I Learned
+
+Building this project deepened my understanding of DOM manipulation, event handling, and code parsing. I learned how to structure a project for maintainability and gained insights into the complexities of implementing IDE-like features from scratch.
+
+## 📦 Installation & Setup
+
+1. Clone the repository
+2. Open index.html in your browser
+
+## 🔗 Live Demo
+
+[Link to GitHub Pages deployment](https://hardextech.github.io/codeEditor/)
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 👤 Author
+
+**Adesina Ayomide Emmanuel**
+
+- GitHub: [@HarDexTech](https://github.com/HarDexTech)
+- LinkedIn: [hardextech](https://linkedin.com/in/hardextech)
